@@ -7,14 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0062FF',
-                        secondary: '#4F46E5',
+                        primary: '#16a34a',
+                        dark: '#15803d',
+                        accent: '#22c55e',
+                        cream: '#fefdf5',
+                        earth: '#3d2b1f',
+                        leaf: '#166534',
                     },
                     fontFamily: {
                         inter: ['Inter', 'sans-serif'],
@@ -27,209 +31,537 @@
         * { box-sizing: border-box; }
         body { margin: 0; font-family: 'Inter', sans-serif; }
         .scroll-smooth { scroll-behavior: smooth; }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); } 50% { box-shadow: 0 0 20px 10px rgba(34,197,94,0.1); } }
+        .pulse-cta { animation: pulse-glow 2s infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .float { animation: float 3s ease-in-out infinite; }
+        .gradient-hero { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%); }
+        .gradient-dark { background: linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%); }
     </style>
 </head>
-<body class="scroll-smooth">
+<body class="scroll-smooth bg-white">
+
+    <!-- Floating CTA Mobile -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-200 p-4 shadow-lg">
+        <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" target="_blank"
+           class="block w-full bg-primary text-white py-4 rounded-xl font-bold text-lg text-center pulse-cta">
+            COMPRAR AGORA - R$ 27
+        </a>
+    </div>
+
     <!-- Header -->
-    <nav class="w-full bg-white py-4 px-12 flex justify-between items-center sticky top-0 z-50 shadow-sm">
-        <div class="text-xl font-bold text-primary">🌿 Fitoterapia</div>
-        <div class="flex gap-8">
-            <a href="#sobre" class="text-gray-600 hover:text-primary transition">Sobre o Livro</a>
-            <a href="#conteudo" class="text-gray-600 hover:text-primary transition">Conteúdo</a>
-            <a href="#depoimentos" class="text-gray-600 hover:text-primary transition">Depoimentos</a>
-            <a href="#preco" class="text-gray-600 hover:text-primary transition">Preço</a>
+    <nav class="w-full bg-white/95 backdrop-blur-sm py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-40 border-b border-gray-100">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">🌿</span>
+            <span class="text-lg font-bold text-leaf hidden sm:block">Fitoterapia</span>
+        </div>
+        <div class="flex gap-4 md:gap-8 items-center">
+            <a href="#sobre" class="text-gray-600 hover:text-primary transition text-sm md:text-base">Sobre</a>
+            <a href="#conteudo" class="text-gray-600 hover:text-primary transition text-sm md:text-base hidden sm:block">Conteúdo</a>
+            <a href="#depoimentos" class="text-gray-600 hover:text-primary transition text-sm md:text-base hidden sm:block">Depoimentos</a>
+            <a href="#preco" class="bg-primary text-white px-4 md:px-6 py-2 rounded-lg font-semibold text-sm hover:bg-dark transition">
+                COMPRAR
+            </a>
         </div>
     </nav>
 
+    <!-- Urgency Banner -->
+    <div class="w-full bg-accent/10 py-3 px-4 text-center">
+        <p class="text-leaf font-semibold text-sm md:text-base">
+            🔥 OFERTA ESPECIAL: De <span class="line-through">R$ 97</span> por apenas <span class="text-primary font-bold">R$ 27</span> — Válido por tempo limitado!
+        </p>
+    </div>
+
     <!-- Hero Section -->
-    <section class="w-full bg-white py-16 px-12 flex gap-12 items-center max-w-7xl mx-auto">
-        <div class="flex-1 max-w-xl">
-            <span class="text-primary font-semibold text-sm tracking-wide">📖 BESTSELLER EM FITOTERAPIA</span>
-            <h1 class="text-5xl font-bold text-gray-900 mt-4 leading-tight">
-                Guia Completo de Fitoterapia: O Poder das Plantas Medicinais
-            </h1>
-            <p class="text-lg text-gray-600 mt-6 leading-relaxed">
-                Descubra como usar plantas medicinais para melhorar sua saúde de forma natural e segura. 
-                Mais de 200 páginas de conhecimento prático.
-            </p>
-            <div class="flex items-center gap-4 mt-8">
-                <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" 
-                   target="_blank"
-                   class="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition shadow-lg">
-                    QUERO MEU GUIA AGORA
-                </a>
-                <span class="text-gray-400 text-sm">🔒 Garantia de 7 dias</span>
+    <section class="gradient-hero py-12 md:py-20 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1 text-center md:text-left">
+                <span class="inline-block bg-primary/10 text-primary font-semibold text-xs md:text-sm px-4 py-2 rounded-full mb-6">
+                    📖 MAIS DE 5.000 COPIAS VENDIDAS
+                </span>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-earth leading-tight">
+                    Guia Completo de <span class="text-primary">Fitoterapia</span>: O Poder das Plantas Medicinais
+                </h1>
+                <p class="text-base md:text-lg text-gray-600 mt-6 leading-relaxed max-w-xl mx-auto md:mx-0">
+                    Descubra como usar plantas medicinais para melhorar sua saúde de forma natural e segura. 
+                    Mais de 200 páginas de conhecimento prático com receitas e dosagens.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-4 mt-8 justify-center md:justify-start">
+                    <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" target="_blank"
+                       class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-dark transition shadow-lg pulse-cta text-center">
+                        QUERO MEU GUIA POR R$ 27
+                    </a>
+                    <div class="flex items-center gap-2 text-gray-500 text-sm">
+                        <span>🔒</span>
+                        <span>Garantia de 7 dias</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 mt-8 justify-center md:justify-start text-sm text-gray-500">
+                    <div class="flex items-center gap-1">
+                        <span class="text-yellow-400">★★★★★</span>
+                        <span>4.9/5</span>
+                    </div>
+                    <span>|</span>
+                    <span>PDF Digital</span>
+                    <span>|</span>
+                    <span>Acesso Imediato</span>
+                </div>
             </div>
-        </div>
-        <div class="flex-1 flex justify-center">
-            <div class="w-80 h-96 bg-blue-50 rounded-2xl flex items-center justify-center shadow-lg">
-                <span class="text-8xl">📚</span>
+            <div class="flex-1 flex justify-center">
+                <div class="relative float">
+                    <div class="w-64 h-80 md:w-80 md:h-96 bg-gradient-to-br from-leaf to-accent rounded-3xl flex items-center justify-center shadow-2xl transform rotate-3">
+                        <div class="text-center text-white p-6">
+                            <span class="text-6xl md:text-8xl block mb-4">📚</span>
+                            <p class="font-bold text-lg md:text-xl">Guia Completo</p>
+                            <p class="text-sm opacity-80">de Fitoterapia</p>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-3 shadow-lg">
+                        <span class="text-2xl font-bold text-primary">-72%</span>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-lg">
+                        <span class="text-sm font-semibold text-earth">+200 páginas</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Social Proof Bar -->
+    <div class="w-full bg-white py-6 px-6 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+            <div>
+                <p class="text-2xl md:text-3xl font-bold text-primary">5.000+</p>
+                <p class="text-gray-500 text-sm">Copias Vendidas</p>
+            </div>
+            <div>
+                <p class="text-2xl md:text-3xl font-bold text-primary">4.9/5</p>
+                <p class="text-gray-500 text-sm">Avaliacao Media</p>
+            </div>
+            <div>
+                <p class="text-2xl md:text-3xl font-bold text-primary">+200</p>
+                <p class="text-gray-500 text-sm">Paginas de Conteudo</p>
+            </div>
+            <div>
+                <p class="text-2xl md:text-3xl font-bold text-primary">24h</p>
+                <p class="text-gray-500 text-sm">Acesso Imediato</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Benefits Section -->
-    <section id="sobre" class="w-full bg-white py-16 px-12">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900">Por que este guia é essencial para você?</h2>
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
-                Um guia prático e completo para quem quer transformar sua saúde com o poder das plantas.
-            </p>
-            <div class="grid grid-cols-3 gap-8 mt-12">
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+    <section id="sobre" class="w-full bg-white py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                    POR QUE ESTE GUIA?
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-earth">
+                    Tudo que voce precisa para <span class="text-primary">usar plantas</span> com seguranca
+                </h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Um guia pratico e completo, escrito por especialistas, para voce iniciar na fitoterapia com seguranca e eficacia.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-cream p-8 rounded-2xl border border-primary/10 hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-3xl">📖</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">+200 Páginas</h3>
-                    <p class="text-gray-600">Conteúdo completo e detalhado sobre plantas medicinais, preparos e dosagens.</p>
+                    <h3 class="text-xl font-bold text-earth mb-3">+200 Paginas</h3>
+                    <p class="text-gray-600 leading-relaxed">Conteudo completo e detalhado sobre plantas medicinais, preparos e dosagens corretas.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="bg-cream p-8 rounded-2xl border border-primary/10 hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-3xl">💡</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Linguagem Simples</h3>
-                    <p class="text-gray-600">Explicações claras e acessíveis, sem termos médicos complicados.</p>
+                    <h3 class="text-xl font-bold text-earth mb-3">Linguagem Simples</h3>
+                    <p class="text-gray-600 leading-relaxed">Explicacoes claras e acessiveis, sem termos medicos complicados. Qualquer pessoa entende.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="bg-cream p-8 rounded-2xl border border-primary/10 hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-3xl">🧪</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Receitas Práticas</h3>
-                    <p class="text-gray-600">Preparos passo a passo para chás, tinturas, óleos e cosméticos naturais.</p>
+                    <h3 class="text-xl font-bold text-earth mb-3">Receitas Praticas</h3>
+                    <p class="text-gray-600 leading-relaxed">Preparos passo a passo para chas, tinturas, oleos e cosmeticos naturais.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="w-full bg-cream py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block bg-red-100 text-red-600 font-semibold text-sm px-4 py-2 rounded-full mb-6">
+                ⚠️ VOCÊ SABIA?
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-earth mb-8">
+                Voce esta perdendo o poder <span class="text-primary">natural das plantas</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="flex items-start gap-4 bg-white p-6 rounded-xl">
+                    <span class="text-red-500 text-xl mt-1">❌</span>
+                    <div>
+                        <p class="font-semibold text-earth">Dependencia de medicamentos</p>
+                        <p class="text-gray-600 text-sm mt-1">Muitas pessoas dependem de remedios quimicos para problemas que as plantas podem resolver.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white p-6 rounded-xl">
+                    <span class="text-red-500 text-xl mt-1">❌</span>
+                    <div>
+                        <p class="font-semibold text-earth">Falta de conhecimento</p>
+                        <p class="text-gray-600 text-sm mt-1">Nao saber quais plantas usar, como preparar e em que dosagens pode ser perigoso.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white p-6 rounded-xl">
+                    <span class="text-red-500 text-xl mt-1">❌</span>
+                    <div>
+                        <p class="font-semibold text-earth">Informacoes incorretas</p>
+                        <p class="text-gray-600 text-sm mt-1">A internet esta cheia de informacoes erradas sobre fitoterapia que podem fazer mal.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white p-6 rounded-xl">
+                    <span class="text-red-500 text-xl mt-1">❌</span>
+                    <div>
+                        <p class="font-semibold text-earth">Desperdicio de dinheiro</p>
+                        <p class="text-gray-600 text-sm mt-1">Comprar produtos caros sem saber se realmente funcionam e ineficiente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" target="_blank"
+                   class="inline-block bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-dark transition shadow-lg">
+                    QUERO RESOLVER ISSO - R$ 27
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Content Section -->
-    <section id="conteudo" class="w-full bg-primary py-16 px-12">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white">O que você vai aprender</h2>
-            <p class="text-white/80 mt-4 max-w-2xl mx-auto">
-                Conteúdo organizado em capítulos práticos para você consultar sempre que precisar.
-            </p>
-            <div class="grid grid-cols-6 gap-5 mt-12">
-                <div class="bg-white p-5 rounded-xl text-left">
-                    <span class="text-xs font-semibold text-gray-400">Cap. 1</span>
-                    <h4 class="font-bold text-gray-900 mt-2">Fundamentos da Fitoterapia</h4>
-                    <p class="text-gray-600 text-sm mt-2">História, ciência e princípios do uso terapêutico de plantas.</p>
+    <section id="conteudo" class="gradient-dark py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-white/20 text-white font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                    CONTEUDO COMPLETO
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">
+                    O que voce vai aprender
+                </h2>
+                <p class="text-white/70 mt-4 max-w-2xl mx-auto">
+                    Conteudo organizado em capitulos praticos para voce consultar sempre que precisar.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition">
+                    <div class="text-accent text-sm font-bold mb-2">CAPITULO 01</div>
+                    <h4 class="font-bold text-white text-lg">Fundamentos da Fitoterapia</h4>
+                    <p class="text-white/70 text-sm mt-2 leading-relaxed">Historia, ciencia e principios do uso terapeutico de plantas medicinais.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl text-left">
-                    <span class="text-xs font-semibold text-gray-400">Cap. 2</span>
-                    <h4 class="font-bold text-gray-900 mt-2">Plantas para Imunidade</h4>
-                    <p class="text-gray-600 text-sm mt-2">Ervas que fortalecem as defesas naturais do organismo.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition">
+                    <div class="text-accent text-sm font-bold mb-2">CAPITULO 02</div>
+                    <h4 class="font-bold text-white text-lg">Plantas para Imunidade</h4>
+                    <p class="text-white/70 text-sm mt-2 leading-relaxed">Ervas que fortalecem as defesas naturais do organismo.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl text-left">
-                    <span class="text-xs font-semibold text-gray-400">Cap. 3</span>
-                    <h4 class="font-bold text-gray-900 mt-2">Saúde Digestiva</h4>
-                    <p class="text-gray-600 text-sm mt-2">Chás e preparos para problemas do estômago e intestino.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition">
+                    <div class="text-accent text-sm font-bold mb-2">CAPITULO 03</div>
+                    <h4 class="font-bold text-white text-lg">Saude Digestiva</h4>
+                    <p class="text-white/70 text-sm mt-2 leading-relaxed">Chas e preparos para problemas do estomago e intestino.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl text-left">
-                    <span class="text-xs font-semibold text-gray-400">Cap. 4</span>
-                    <h4 class="font-bold text-gray-900 mt-2">Saúde Mental</h4>
-                    <p class="text-gray-600 text-sm mt-2">Plantas calmantes e para qualidade do sono.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition">
+                    <div class="text-accent text-sm font-bold mb-2">CAPITULO 04</div>
+                    <h4 class="font-bold text-white text-lg">Saude Mental</h4>
+                    <p class="text-white/70 text-sm mt-2 leading-relaxed">Plantas calmantes e para qualidade do sono.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl text-left">
-                    <span class="text-xs font-semibold text-gray-400">Cap. 5</span>
-                    <h4 class="font-bold text-gray-900 mt-2">Cuidados com a Pele</h4>
-                    <p class="text-gray-600 text-sm mt-2">Receitas naturais para beleza e saúde da pele.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition">
+                    <div class="text-accent text-sm font-bold mb-2">CAPITULO 05</div>
+                    <h4 class="font-bold text-white text-lg">Cuidados com a Pele</h4>
+                    <p class="text-white/70 text-sm mt-2 leading-relaxed">Receitas naturais para beleza e saude da pele.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl text-left">
-                    <span class="text-xs font-semibold text-gray-400">Cap. 6</span>
-                    <h4 class="font-bold text-gray-900 mt-2">Primeiros Socorros</h4>
-                    <p class="text-gray-600 text-sm mt-2">Ervas úteis para emergências e dores do dia a dia.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition">
+                    <div class="text-accent text-sm font-bold mb-2">CAPITULO 06</div>
+                    <h4 class="font-bold text-white text-lg">Primeiros Socorros</h4>
+                    <p class="text-white/70 text-sm mt-2 leading-relaxed">Ervas uteis para emergencias e dores do dia a dia.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="depoimentos" class="w-full bg-white py-16 px-12">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900">O que dizem nossos leitores</h2>
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
-                Mais de 5.000 cópias vendidas e centenas de depoimentos positivos.
-            </p>
-            <div class="grid grid-cols-3 gap-8 mt-12">
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-left">
-                    <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
-                    <p class="text-gray-900 italic mb-6">"Um livro indispensável! Aprendi a preparar chás que realmente funcionam para minha ansiedade."</p>
-                    <span class="text-gray-400 text-sm font-semibold">— Ana Carolina, Professora</span>
+    <section id="depoimentos" class="w-full bg-white py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                    DEPOIMENTOS REAIS
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-earth">
+                    O que dizem nossos leitores
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-cream p-8 rounded-2xl border border-primary/10">
+                    <div class="text-yellow-400 text-xl mb-4">★★★★★</div>
+                    <p class="text-earth italic mb-6 leading-relaxed">"Um livro indispensavel! Aprendi a preparar chas que realmente funcionam para minha ansiedade. Recomendo demais!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-primary font-bold">AC</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth text-sm">Ana Carolina</p>
+                            <p class="text-gray-500 text-xs">Professora</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-left">
-                    <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
-                    <p class="text-gray-900 italic mb-6">"Conteúdo muito completo e fácil de entender. Já indiquei para toda minha família."</p>
-                    <span class="text-gray-400 text-sm font-semibold">— Roberto Santos, Engenheiro</span>
+                <div class="bg-cream p-8 rounded-2xl border border-primary/10">
+                    <div class="text-yellow-400 text-xl mb-4">★★★★★</div>
+                    <p class="text-earth italic mb-6 leading-relaxed">"Conteudo muito completo e facil de entender. Ja indiquei para toda minha familia. Melhor investimento que fiz!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-primary font-bold">RS</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth text-sm">Roberto Santos</p>
+                            <p class="text-gray-500 text-xs">Engenheiro</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-left">
-                    <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
-                    <p class="text-gray-900 italic mb-6">"As receitas de cuidados com a pele são maravilhosas! Minha pele nunca esteve tão bem."</p>
-                    <span class="text-gray-400 text-sm font-semibold">— Juliana Mendes, Designer</span>
+                <div class="bg-cream p-8 rounded-2xl border border-primary/10">
+                    <div class="text-yellow-400 text-xl mb-4">★★★★★</div>
+                    <p class="text-earth italic mb-6 leading-relaxed">"As receitas de cuidados com a pele sao maravilhosas! Minha pele nunca esteve tao bem. Vale cada centavo!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-primary font-bold">JM</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth text-sm">Juliana Mendes</p>
+                            <p class="text-gray-500 text-xs">Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="w-full bg-cream py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                    O QUE ESTA INCLUSO
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-earth">
+                    Tudo isso por apenas <span class="text-primary">R$ 27</span>
+                </h2>
+            </div>
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-white text-sm">✓</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth">Ebook Completo (PDF)</p>
+                            <p class="text-gray-600 text-sm">+200 paginas de conteudo exclusivo</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-white text-sm">✓</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth">Acesso Imediato</p>
+                            <p class="text-gray-600 text-sm">Receba o PDF por email agora</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-white text-sm">✓</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth">Receitas Praticas</p>
+                            <p class="text-gray-600 text-sm">Chas, tinturas, oleos e mais</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-white text-sm">✓</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth">Atualizacoes Gratuitas</p>
+                            <p class="text-gray-600 text-sm">Receba atualizacoes sem custo</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-white text-sm">✓</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth">Garantia de 7 Dias</p>
+                            <p class="text-gray-600 text-sm">Se nao gostar, devolvemos seu dinheiro</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-white text-sm">✓</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-earth">Suporte por Email</p>
+                            <p class="text-gray-600 text-sm">Tire suas duvidas diretamente</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="preco" class="w-full bg-primary py-16 px-12">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white">Invista na sua saúde</h2>
-            <div class="bg-white rounded-3xl p-12 max-w-lg mx-auto mt-12 shadow-2xl">
-                <span class="text-primary font-semibold text-sm">GUIA COMPLETO DE FITOTERAPIA</span>
-                <p class="text-gray-400 line-through mt-2">De R$ 197,00</p>
-                <p class="text-6xl font-bold text-gray-900 mt-2">12x de R$ 12,90</p>
-                <p class="text-gray-600 mt-2">ou R$ 127,00 à vista</p>
-                <div class="text-left mt-8 space-y-3">
-                    <p class="flex items-center gap-2">✅ +200 páginas de conteúdo exclusivo</p>
-                    <p class="flex items-center gap-2">✅ Acesso imediato em PDF</p>
-                    <p class="flex items-center gap-2">✅ Receitas práticas e passo a passo</p>
-                    <p class="flex items-center gap-2">✅ Atualizações gratuitas</p>
-                    <p class="flex items-center gap-2">✅ Garantia de 7 dias ou seu dinheiro de volta</p>
+    <section id="preco" class="gradient-dark py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block bg-white/20 text-white font-semibold text-sm px-4 py-2 rounded-full mb-6">
+                OFERTA ESPECIAL
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Invista na sua saude por menos de um cafe por dia
+            </h2>
+            <p class="text-white/70 mb-12">Pagamento unico, acesso para sempre.</p>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 max-w-lg mx-auto shadow-2xl relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-2 rounded-full font-bold text-sm">
+                    -72% OFF
                 </div>
-                <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" 
-                   target="_blank"
-                   class="block w-full bg-primary text-white py-4 rounded-lg font-bold text-lg text-center mt-8 hover:bg-blue-700 transition shadow-lg">
+                <span class="text-primary font-bold text-sm tracking-wider">GUIA COMPLETO DE FITOTERAPIA</span>
+                <div class="mt-4">
+                    <span class="text-gray-400 line-through text-xl">De R$ 97,00</span>
+                </div>
+                <div class="mt-2">
+                    <span class="text-6xl md:text-7xl font-extrabold text-earth">R$ 27</span>
+                </div>
+                <p class="text-gray-500 mt-2">ou 3x de R$ 9,90 no cartao</p>
+                
+                <div class="border-t border-gray-200 my-8"></div>
+                
+                <div class="text-left space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary text-lg">✓</span>
+                        <span class="text-gray-700">+200 paginas de conteudo exclusivo</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary text-lg">✓</span>
+                        <span class="text-gray-700">Acesso imediato em PDF</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary text-lg">✓</span>
+                        <span class="text-gray-700">Receitas praticas e passo a passo</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary text-lg">✓</span>
+                        <span class="text-gray-700">Atualizacoes gratuitas</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-primary text-lg">✓</span>
+                        <span class="text-gray-700">Garantia de 7 dias</span>
+                    </div>
+                </div>
+                
+                <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" target="_blank"
+                   class="block w-full bg-primary text-white py-5 rounded-xl font-bold text-xl text-center mt-8 hover:bg-dark transition shadow-lg pulse-cta">
                     QUERO COMEÇAR AGORA
                 </a>
-                <p class="text-gray-400 text-sm mt-4">Pagamento 100% seguro via Hotmart</p>
+                
+                <div class="flex items-center justify-center gap-2 mt-6 text-gray-400 text-sm">
+                    <span>🔒</span>
+                    <span>Pagamento 100% seguro via Hotmart</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="w-full bg-cream py-16 md:py-20 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-lg border-2 border-primary/20">
+                <span class="text-6xl mb-6 block">🛡️</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-earth mb-4">
+                    Garantia Incondicional de 7 Dias
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    Se voce nao estiver 100% satisfeito com o Guia Completo de Fitoterapia, nos devolvemos 
+                    todo o seu dinheiro sem perguntas. O risco e todo nosso!
+                </p>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="w-full bg-white py-16 px-12">
+    <section class="w-full bg-white py-16 md:py-24 px-6 md:px-12">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Perguntas Frequentes</h2>
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                    DUVIDAS
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-earth">
+                    Perguntas Frequentes
+                </h2>
+            </div>
             <div class="space-y-6">
                 <div class="border-b border-gray-200 pb-6">
-                    <h3 class="font-bold text-gray-900 text-lg">O livro é físico ou digital?</h3>
-                    <p class="text-gray-600 mt-2">O guia é entregue em formato digital (PDF), com acesso imediato após a compra. Você pode ler no computador, tablet ou celular.</p>
+                    <h3 class="font-bold text-earth text-lg">O ebook e fisico ou digital?</h3>
+                    <p class="text-gray-600 mt-2 leading-relaxed">O guia e entregue em formato digital (PDF), com acesso imediato apos a compra. Voce pode ler no computador, tablet ou celular.</p>
                 </div>
                 <div class="border-b border-gray-200 pb-6">
-                    <h3 class="font-bold text-gray-900 text-lg">Preciso ter experiência com fitoterapia?</h3>
-                    <p class="text-gray-600 mt-2">Não! O guia foi escrito para iniciantes e pessoas com experiência. A linguagem é clara e didática.</p>
+                    <h3 class="font-bold text-earth text-lg">Preciso ter experiencia com fitoterapia?</h3>
+                    <p class="text-gray-600 mt-2 leading-relaxed">Nao! O guia foi escrito para iniciantes e pessoas com experiencia. A linguagem e clara e didatica.</p>
                 </div>
                 <div class="border-b border-gray-200 pb-6">
-                    <h3 class="font-bold text-gray-900 text-lg">As receitas são seguras?</h3>
-                    <p class="text-gray-600 mt-2">Sim! Todas as receitas seguem protocolos de segurança e os princípios da fitoterapia baseada em evidências.</p>
+                    <h3 class="font-bold text-earth text-lg">As receitas sao seguras?</h3>
+                    <p class="text-gray-600 mt-2 leading-relaxed">Sim! Todas as receitas seguem protocolos de seguranca e os principios da fitoterapia baseada em evidencias.</p>
                 </div>
                 <div class="border-b border-gray-200 pb-6">
-                    <h3 class="font-bold text-gray-900 text-lg">Posso me consultar com um médico?</h3>
-                    <p class="text-gray-600 mt-2">O guia é um complemento e não substitui acompanhamento médico. Sempre consulte um profissional de saúde.</p>
+                    <h3 class="font-bold text-earth text-lg">Posso me consultar com um medico?</h3>
+                    <p class="text-gray-600 mt-2 leading-relaxed">O guia e um complemento e nao substitui acompanhamento medico. Sempre consulte um profissional de saude.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="font-bold text-earth text-lg">Como recebo o ebook?</h3>
+                    <p class="text-gray-600 mt-2 leading-relaxed">Apos a confirmacao do pagamento, voce recebe o link para download por email. E instantaneo!</p>
+                </div>
+                <div class="pb-6">
+                    <h3 class="font-bold text-earth text-lg">Posso imprimir o ebook?</h3>
+                    <p class="text-gray-600 mt-2 leading-relaxed">Sim! O PDF e otimizado para impressao. Voce pode imprimir quantas quiser para uso pessoal.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Final CTA -->
+    <section class="gradient-dark py-16 md:py-20 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Pronto para transformar sua saude?
+            </h2>
+            <p class="text-white/70 mb-8 max-w-2xl mx-auto">
+                Junte-se a mais de 5.000 pessoas que ja descobriram o poder das plantas medicinais.
+            </p>
+            <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" target="_blank"
+               class="inline-block bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl hover:bg-gray-100 transition shadow-lg">
+                QUERO MEU GUIA POR R$ 27
+            </a>
+            <p class="text-white/50 text-sm mt-4">Oferta por tempo limitado</p>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="w-full bg-gray-50 py-8 px-12 text-center">
-        <p class="font-bold text-gray-900">Fitoterapia - Guia Completo</p>
-        <p class="text-gray-400 text-sm mt-2">© 2024 Guia Completo de Fitoterapia. Todos os direitos reservados.</p>
-        <p class="text-primary text-sm mt-2">
-            <a href="#" class="hover:underline">Termos de Uso</a> | 
-            <a href="#" class="hover:underline">Política de Privacidade</a> | 
-            <a href="#" class="hover:underline">Contato</a>
-        </p>
+    <footer class="w-full bg-earth py-10 px-6 md:px-12 text-center pb-20 md:pb-10">
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <span class="text-2xl">🌿</span>
+            <span class="text-lg font-bold text-white">Fitoterapia - Guia Completo</span>
+        </div>
+        <p class="text-white/50 text-sm">© 2024 Guia Completo de Fitoterapia. Todos os direitos reservados.</p>
+        <div class="flex items-center justify-center gap-4 mt-4 text-sm">
+            <a href="#" class="text-white/50 hover:text-white transition">Termos de Uso</a>
+            <span class="text-white/30">|</span>
+            <a href="#" class="text-white/50 hover:text-white transition">Politica de Privacidade</a>
+            <span class="text-white/30">|</span>
+            <a href="#" class="text-white/50 hover:text-white transition">Contato</a>
+        </div>
     </footer>
 
     <!-- Hotmart Widget -->
