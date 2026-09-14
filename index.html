@@ -37,6 +37,8 @@
         .float { animation: float 3s ease-in-out infinite; }
         .gradient-hero { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%); }
         .gradient-dark { background: linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%); }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="scroll-smooth bg-white">
@@ -84,7 +86,7 @@
                 </h1>
                 <p class="text-base md:text-lg text-gray-600 mt-6 leading-relaxed max-w-xl mx-auto md:mx-0">
                     Descubra como usar plantas medicinais para melhorar sua saúde de forma natural e segura. 
-                    Mais de 200 páginas de conhecimento prático com receitas e dosagens.
+                    Conhecimento pratico com receitas, preparos e dosagens para o dia a dia.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center gap-4 mt-8 justify-center md:justify-start">
                     <a href="https://pay.hotmart.com/F107603433B?checkoutMode=2" target="_blank"
@@ -120,7 +122,7 @@
                         <span class="text-2xl font-bold text-primary">-72%</span>
                     </div>
                     <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-lg">
-                        <span class="text-sm font-semibold text-earth">+200 páginas</span>
+                        <span class="text-sm font-semibold text-earth">+30 Plantas</span>
                     </div>
                 </div>
             </div>
@@ -139,8 +141,8 @@
                 <p class="text-gray-500 text-sm">Avaliacao Media</p>
             </div>
             <div>
-                <p class="text-2xl md:text-3xl font-bold text-primary">+200</p>
-                <p class="text-gray-500 text-sm">Paginas de Conteudo</p>
+                <p class="text-2xl md:text-3xl font-bold text-primary">+30</p>
+                <p class="text-gray-500 text-sm">Plantas Medicinais</p>
             </div>
             <div>
                 <p class="text-2xl md:text-3xl font-bold text-primary">24h</p>
@@ -166,10 +168,10 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-cream p-8 rounded-2xl border border-primary/10 hover:shadow-xl transition">
                     <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-3xl">📖</span>
+                        <span class="text-3xl">🌱</span>
                     </div>
-                    <h3 class="text-xl font-bold text-earth mb-3">+200 Paginas</h3>
-                    <p class="text-gray-600 leading-relaxed">Conteudo completo e detalhado sobre plantas medicinais, preparos e dosagens corretas.</p>
+                    <h3 class="text-xl font-bold text-earth mb-3">+30 Plantas</h3>
+                    <p class="text-gray-600 leading-relaxed">Conheca as principais plantas medicinais, seus beneficios e como usa-las no dia a dia.</p>
                 </div>
                 <div class="bg-cream p-8 rounded-2xl border border-primary/10 hover:shadow-xl transition">
                     <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
@@ -286,6 +288,277 @@
         </div>
     </section>
 
+    <!-- Plants Carousel Section -->
+    <section class="w-full bg-cream py-16 md:py-24 px-6 md:px-12 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4">
+                    PLANTAS ABORDADAS
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-earth">
+                    Conheca as principais <span class="text-primary">plantas medicinais</span>
+                </h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Deslize para conhecer algumas das plantas que voce vai aprender a usar neste guia.
+                </p>
+            </div>
+            
+            <!-- Carousel Container -->
+            <div class="relative">
+                <!-- Carousel Track -->
+                <div id="plantCarousel" class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    
+                    <!-- Plant 1 - Camomila -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=300&fit=crop" 
+                                     alt="Camomila" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌼</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Camomila</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Chamaemelum nobile</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Ideal para ansiedade, insônia e dores estomacais. Um dos chás mais populares do mundo.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Calmante</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Digestivo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 2 - Lavanda -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1595239424532-40df6249569c?w=400&h=300&fit=crop" 
+                                     alt="Lavanda" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23e9d5ff%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>💜</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Lavanda</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Lavandula angustifolia</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Perfeita para relaxamento, dores de cabeça e cuidados com a pele. Aroma inconfundível.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Relaxante</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Antisséptico</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 3 - Erva-Cidreira -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=400&h=300&fit=crop" 
+                                     alt="Erva-Cidreira" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌿</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Erva-Cidreira</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Melissa officinalis</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Excelente para digestão, ansiedade e insônia. Sabor cítrico suave e agradável.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Digestivo</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Calmante</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 4 - Alecrim -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=400&h=300&fit=crop" 
+                                     alt="Alecrim" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌿</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Alecrim</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Rosmarinus officinalis</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Fortalece a memória, melhora a circulação e estimula o crescimento capilar.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Estimulante</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Circulatório</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 5 - Boldo -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=400&h=300&fit=crop" 
+                                     alt="Boldo" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🍃</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Boldo</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Plectranthus barbatus</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">O grande aliado do fígado. Indigestão, gases e enjôos ficam no passado.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Hepatoprotetor</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Digestivo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 6 - Capim-Limão -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=400&h=300&fit=crop" 
+                                     alt="Capim-Limão" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌾</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Capim-Limão</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Cymbopogon citratus</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Refrescante e calmante. Perfeito para acalmar os nervos e melhorar o humor.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Calmante</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Refrescante</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 7 - Aloe Vera -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&h=300&fit=crop" 
+                                     alt="Aloe Vera" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌵</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Aloe Vera</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Aloe barbadensis miller</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">A planta da pele. Hidrata, cicatriza e renova as células da pele naturalmente.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Cicatrizante</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Hidratante</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 8 - Carqueja -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=400&h=300&fit=crop" 
+                                     alt="Carqueja" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌼</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Carqueja</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Baccharis trimera</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Famosa por ser o "amigo do fígado". Ajuda na digestão e reduz gases.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Hepatoprotetor</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Antiflatulento</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 9 - Jurubeba -->
+                    <div class="flex-shrink-0 w-72 snap-center">
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=400&h=300&fit=crop" 
+                                     alt="Jurubeba" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23dcfce7%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 font-size=%2260%22 text-anchor=%22middle%22>🌿</text></svg>'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-earth text-xl">Jurubeba</h3>
+                                <p class="text-primary text-sm font-semibold mt-1">Solanum paniculatum</p>
+                                <p class="text-gray-600 text-sm mt-3 leading-relaxed">Fortalece o apetite e melhora a digestão. Muito usada na medicina popular brasileira.</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Tonificante</span>
+                                    <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">Apetitivo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button onclick="scrollCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
+                    <svg class="w-6 h-6 text-earth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="scrollCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
+                    <svg class="w-6 h-6 text-earth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="flex justify-center gap-2 mt-8" id="carouselDots">
+                <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-primary transition"></button>
+                <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-gray-300 transition"></button>
+                <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-gray-300 transition"></button>
+            </div>
+
+            <div class="text-center mt-8">
+                <p class="text-gray-600 text-sm">E muito mais no guia completo...</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const carousel = document.getElementById('plantCarousel');
+        const dots = document.querySelectorAll('#carouselDots button');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function scrollCarousel(direction) {
+            const scrollAmount = 300;
+            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+            updateDots();
+        }
+
+        function goToSlide(index) {
+            const slideWidth = carousel.scrollWidth / totalSlides;
+            carousel.scrollTo({ left: index * slideWidth, behavior: 'smooth' });
+            currentSlide = index;
+            updateDots();
+        }
+
+        function updateDots() {
+            const scrollPercent = carousel.scrollLeft / (carousel.scrollWidth - carousel.clientWidth);
+            const newSlide = Math.round(scrollPercent * (totalSlides - 1));
+            if (newSlide !== currentSlide) {
+                currentSlide = newSlide;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-primary', i === currentSlide);
+                    dot.classList.toggle('bg-gray-300', i !== currentSlide);
+                });
+            }
+        }
+
+        carousel.addEventListener('scroll', updateDots);
+    </script>
+
     <!-- Testimonials Section -->
     <section id="depoimentos" class="w-full bg-white py-16 md:py-24 px-6 md:px-12">
         <div class="max-w-6xl mx-auto">
@@ -360,7 +633,7 @@
                         </div>
                         <div>
                             <p class="font-semibold text-earth">Ebook Completo (PDF)</p>
-                            <p class="text-gray-600 text-sm">+200 paginas de conteudo exclusivo</p>
+                            <p class="text-gray-600 text-sm">Conteudo completo sobre plantas medicinais</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -442,7 +715,7 @@
                 <div class="text-left space-y-4">
                     <div class="flex items-center gap-3">
                         <span class="text-primary text-lg">✓</span>
-                        <span class="text-gray-700">+200 paginas de conteudo exclusivo</span>
+                        <span class="text-gray-700">Ebook completo sobre plantas medicinais</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-primary text-lg">✓</span>
